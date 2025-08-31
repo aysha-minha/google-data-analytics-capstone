@@ -1,0 +1,56 @@
+Capstone Notes — Cyclistic (August 2024)
+Author: Aysha Minha
+Date: 29-08-2025
+
+Overview:
+- Project: Cyclistic bike-share analysis (August 2024)
+- Tools: Excel (cleaning), Google Sheets (analysis & charts)
+- Scope: Single-month analysis (August) due to spreadsheet row limits
+
+Files used / location:
+- data/raw/202408-divvy-tripdata.zip
+- data/csv/202408-divvy-tripdata.csv
+- data/excel/202408-divvy-tripdata.xlsx
+- data/excel/August_data_cleaned.xlsx
+- data/excel/August_data_cleaned_trimmed.xlsx
+- data/excel/August_analysis_link.txt (Google Sheet link)
+- data/archive
+- docs/Data_Journal.docx
+- docs/Capstone_Report.docx
+- docs/Capstone_Notes.txt
+- scripts/excel_formulas.txt
+- visuals/ (exported PNG charts)
+- final/Capstone_Report.pdf
+
+
+Cleaning steps (high level):
+1. Open raw CSV in Excel.
+2. Remove obviously invalid rows:
+   - rides with blank start or end times
+   - duplicate ride_id rows
+3. Calculate ride_length = ended_at - started_at
+4. Filter out rides with ride_length < 1 minute or > 24 hours
+5. Add day_of_week = WEEKDAY(started_at, 2)
+6. Save cleaned master file: August_data_cleaned.xlsx
+7. Make a trimmed copy for Sheets: August_data_cleaned_trimmed.xlsx (keep only analysis columns)
+
+Analysis steps (high level):
+1. Upload trimmed file to Google Drive → Open in Google Sheets
+2. Create pivots:
+   - Number of rides by user type (COUNT of ride_id by member_casual)
+   - Rides by day_of_week (COUNT of ride_id split by member_casual)
+   - Bike type preference (COUNT of ride_id by rideable_type vs member_casual)
+3. Export charts as PNG into visuals/
+
+Outputs (saved):
+- visuals/Number of Rides by User Type.png
+- visuals/Number of Rides by Day of Week(Member vs Casual.png
+- visuals/Bike Type Preference(Member vs Casual).png
+- docs/Capstone_Report.docx (draft)
+- final/Capstone_Report.pdf (final export)
+
+Limitations & notes:
+- Analysis uses August only (representative sample); full-year analysis requires SQL/R for scalability
+- Excel formulas documented in scripts/excel_formulas.txt
+
+

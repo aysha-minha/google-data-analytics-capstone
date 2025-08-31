@@ -1,0 +1,15 @@
+Excel formulas used
+Project: Cyclistic - August 2023
+Author: Aysha Minha
+
+# 1) Ride length (duration)
+= D2 - C2
+# Subtracts start time from end time.
+
+# 2) Day of week (numeric: Monday = 1, Sunday = 7)
+= WEEKDAY(C2, 2)
+
+
+* ride_length = ended_at - started_at
+* day_of_week = WEEKDAY(started_at,2)
+
